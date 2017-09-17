@@ -1,0 +1,20 @@
+n = int(input().strip())
+word = input().strip()
+key = int(input().strip())%26
+letter = list(word)
+encoded = []
+for item in letter:
+    z = ord(item)
+    if(z >= 97 and z<=122):
+        if ((z+key)>122):
+            encoded.append(chr(96+(z+key-122)))
+        else:
+            encoded.append(chr(z+key))
+    elif (z>=65 and z<=90):
+        if (z+key) > 90:
+            encoded.append(chr(64+(z+key-90)))
+        else:
+            encoded.append(chr(z+key))
+    else:
+        encoded.append(item)
+print("".join(encoded))
